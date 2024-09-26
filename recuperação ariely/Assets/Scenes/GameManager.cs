@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         Vector2 position;
         do
         {
-            position = new Vector2(Random.Range(0, width), Random.Range(0, height));
+            position = new Vector2(UnityEngine.Random.Range(0, width), UnityEngine.Random.Range(0, height));
         } while (IsPositionOccupied(position));
         food = Instantiate(foodPrefab, position, Quaternion.identity).transform;
     }
