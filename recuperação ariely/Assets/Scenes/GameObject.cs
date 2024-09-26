@@ -16,5 +16,27 @@ public class GameObject : MonoBehaviour
     private Vector2Int currentDirection;  
     private Transform foodInstance;  
 
-    private Vector2Int foodPosition;  
+    private Vector2Int foodPosition;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;  
+            InitializeGame();  
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    
+    private void InitializeGame()
+    {
+        currentDirection = Vector2Int.right; 
+        CreateSnake();  
+        SpawnFood();    
+    }
+
 }
