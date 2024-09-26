@@ -56,5 +56,10 @@ public class GameManager : MonoBehaviour
         } while (IsPositionOccupied(position));
         food = Instantiate(foodPrefab, position, Quaternion.identity).transform;
     }
+
+    private bool IsPositionOccupied(Vector2 position)
+    {
+        throw new NotImplementedException();
+    }
 }
 
