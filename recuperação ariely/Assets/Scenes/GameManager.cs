@@ -45,5 +45,16 @@ public class GameManager : MonoBehaviour
     {
         throw new NotImplementedException();
     }
+
+    private void SpawnFood()
+    {
+        if (food != null) Destroy(food.gameObject);
+        Vector2 position;
+        do
+        {
+            position = new Vector2(Random.Range(0, width), Random.Range(0, height));
+        } while (IsPositionOccupied(position));
+        food = Instantiate(foodPrefab, position, Quaternion.identity).transform;
+    }
 }
 
