@@ -95,4 +95,8 @@ public class GameObject : MonoBehaviour
         AddSnakeSegment(newPosition);
     }
 
+    private bool CheckCollision(Vector2Int newPosition)
+    {
+        throw new NotImplementedException();
+    }
 }
