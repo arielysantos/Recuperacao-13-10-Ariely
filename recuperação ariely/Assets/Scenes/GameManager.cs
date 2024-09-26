@@ -32,5 +32,13 @@ public class GameManager : MonoBehaviour
     {
         throw new NotImplementedException();
     }
+
+    private void SpawnSnake()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            AddSnakeSegment(new Vector2(i, 0));
+        }
+    }
 }
 
