@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,4 +13,21 @@ public class GameManager : MonoBehaviour
     private List<Transform> snake = new List<Transform>();
     private Vector2 direction;
     private Transform food;
+
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            InitializeGame();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    
 }
+
