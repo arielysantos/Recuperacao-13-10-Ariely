@@ -62,6 +62,8 @@ public class GameObject : MonoBehaviour
         }
     }
 
-    
-  
+    private void AddSnakeSegment(Vector2Int position)
+    {
+        throw new NotImplementedException();
+    }
 }
