@@ -40,5 +40,10 @@ public class GameManager : MonoBehaviour
             AddSnakeSegment(new Vector2(i, 0));
         }
     }
+
+    private void AddSnakeSegment(Vector2 vector2)
+    {
+        throw new NotImplementedException();
+    }
 }
 
