@@ -49,4 +49,19 @@ public class GameObject : MonoBehaviour
     {
         throw new NotImplementedException();
     }
+
+    private void CreateSnake()
+    {
+        Vector2Int startPosition = new Vector2Int(boardWidth / 2, boardHeight / 2);
+
+        for (int i = 0; i < 3; i++)
+        {
+           
+            Vector2Int position = startPosition - new Vector2Int(i, 0);  
+            AddSnakeSegment(position);
+        }
+    }
+
+    
+  
 }
