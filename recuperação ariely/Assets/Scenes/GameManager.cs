@@ -89,4 +89,15 @@ public class GameManager : MonoBehaviour
             snake.RemoveAt(snake.Count - 1);
         }
     }
+
+    private bool CheckCollision(Vector2 position)
+    {
+        if (position.x < 0 || position.x >= width || position.y < 0 || position.y >= height)
+            return true; // Colisão com as bordas
+        foreach (var segment in snake)
+        {
+            if (segment.position == (Vector3)position) return true; // Colisão com o corpo
+        }
+        return false;
+    }
 }
