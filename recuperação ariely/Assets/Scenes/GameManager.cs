@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    private void InitializeGame()
+    {
+        throw new NotImplementedException();
+    }
 }
 
