@@ -40,6 +40,11 @@ public class GameObject : MonoBehaviour
         SpawnFood();    
     }
 
+    private void SpawnFood()
+    {
+        throw new NotImplementedException();
+    }
+
     private void CreateSnake()
     {
         throw new NotImplementedException();
