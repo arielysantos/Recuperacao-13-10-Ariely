@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,5 +17,10 @@ public class SnakeController : MonoBehaviour
             moveTimer = 0;
             GameManager.Instance.MoveSnake();
         }
+    }
+
+    private void HandleInput()
+    {
+        throw new NotImplementedException();
     }
 }
