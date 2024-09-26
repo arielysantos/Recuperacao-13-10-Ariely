@@ -68,5 +68,25 @@ public class GameManager : MonoBehaviour
             direction = newDirection;
     }
 
-}
 
+    public void MoveSnake()
+    {
+        Vector2 newPosition = (Vector2)snake[0].position + direction;
+        if (CheckCollision(newPosition))
+        {
+            Debug.Log("Game Over!");
+            return; // Finaliza o jogo
+        }
+        Transform newSegment = Instantiate(snakeSegmentPrefab, newPosition, Quaternion.identity).transform;
+        snake.Insert(0, newSegment);
+        if (newPosition == (Vector2)food.position)
+        {
+            SpawnFood(); // Comeu a comida
+        }
+        else
+        {
+            Destroy(snake[snake.Count - 1].gameObject); // Remove a cauda
+            snake.RemoveAt(snake.Count - 1);
+        }
+    }
+}
