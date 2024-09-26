@@ -99,4 +99,15 @@ public class GameObject : MonoBehaviour
     {
         throw new NotImplementedException();
     }
+
+    public void ChangeDirection(Vector2Int newDirection)
+    {
+        // Impede que a cobra se mova para a direção oposta diretamente
+        if (newDirection != -currentDirection)
+        {
+            currentDirection = newDirection;
+        }
+    }
+
+    // Gera comida em uma posição aleatória
 }
