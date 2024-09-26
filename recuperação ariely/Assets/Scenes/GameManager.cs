@@ -61,5 +61,12 @@ public class GameManager : MonoBehaviour
     {
         throw new NotImplementedException();
     }
+
+    public void ChangeDirection(Vector2 newDirection)
+    {
+        if (newDirection != -direction) // Impede movimento reverso
+            direction = newDirection;
+    }
+
 }
 
