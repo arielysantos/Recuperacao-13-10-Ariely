@@ -23,4 +23,19 @@ public class SnakeController : MonoBehaviour
     {
         throw new NotImplementedException();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+            GameManager.Instance.ChangeDirection(Vector2Int.up);
+        else if (Input.GetKeyDown(KeyCode.S))
+            GameManager.Instance.ChangeDirection(Vector2Int.down);
+        else if (Input.GetKeyDown(KeyCode.A))
+            GameManager.Instance.ChangeDirection(Vector2Int.left);
+        else if (Input.GetKeyDown(KeyCode.D))
+            GameManager.Instance.ChangeDirection(Vector2Int.right);
+
+        // Move a cobra a cada frame (você pode ajustar o intervalo)
+        GameManager.Instance.MoveSnake();
+    }
 }
+
