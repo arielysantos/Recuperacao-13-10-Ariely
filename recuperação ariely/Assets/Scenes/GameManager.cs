@@ -100,4 +100,9 @@ public class GameManager : MonoBehaviour
         }
         return false;
     }
+
+    public static implicit operator GameManager(GameObject v)
+    {
+        throw new NotImplementedException();
+    }
 }
