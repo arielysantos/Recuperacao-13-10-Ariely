@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class GameObject : MonoBehaviour
 {
-<<<<<<< Updated upstream
     public static GameManager Instance { get; private set; }
 
     public GameObject snakeSegmentPrefab;
@@ -26,71 +25,27 @@ public class GameObject : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            InitializeGame();
+            InitializeGame1();
         }
         else
         {
-=======
-    // Singleton para garantir que haja apenas uma instância de GameManager
-    public static GameManager Instance { get; private set; }
 
-    // Prefabs para o segmento da cobra e para a comida
-    public GameObject snakeSegmentPrefab;
-    public GameObject foodPrefab;
-
-    // Dimensões do tabuleiro do jogo
-    public int boardWidth = 20;
-    public int boardHeight = 20;
-
-    // Lista para armazenar os segmentos da cobra
-    private List<Transform> snakeSegments = new List<Transform>();
-
-    // Direção atual da cobra
-    private Vector2Int currentDirection;
-
-    // Referência ao objeto de comida instanciado
-    private Transform foodInstance;
-
-    // Posição da comida no grid
-    private Vector2Int foodPosition;
-
-    // Método Awake é chamado quando o script é inicializado
-    private void Awake()
-    {
-        // Verifica se a instância já foi criada
-        if (Instance == null)
-        {
-            Instance = this; // Define a instância
-            InitializeGame(); // Inicia o jogo
-        }
-        else
-        {
-            // Destroi este objeto se uma instância já existe
->>>>>>> Stashed changes
-            Destroy(gameObject);
         }
     }
 
-<<<<<<< Updated upstream
-
-    private void InitializeGame()
+    private void InitializeGame1()
     {
         currentDirection = Vector2Int.right;
-        CreateSnake();
-        SpawnFood();
+        CreateSnake1();
+        SpawnFood1();
     }
 
-    private void SpawnFood()
+    private static void SpawnFood1()
     {
         throw new NotImplementedException();
     }
 
-    private void CreateSnake()
-    {
-        throw new NotImplementedException();
-    }
-
-    private void CreateSnake()
+    private void CreateSnake1()
     {
         Vector2Int startPosition = new Vector2Int(boardWidth / 2, boardHeight / 2);
 
@@ -98,21 +53,21 @@ public class GameObject : MonoBehaviour
         {
 
             Vector2Int position = startPosition - new Vector2Int(i, 0);
-            AddSnakeSegment(position);
+            AddSnakeSegment1(position);
         }
     }
 
-    private void AddSnakeSegment(Vector2Int position)
+    private static void AddSnakeSegment1(Vector2Int position)
     {
         throw new NotImplementedException();
     }
 
-    public void MoveSnake()
+    private void MoveSnake1()
     {
 
         Vector2Int newPosition = Vector2Int.RoundToInt(snakeSegments[0].position) + currentDirection;
 
-        if (CheckCollision(newPosition))
+        if (CheckCollision1(newPosition))
         {
             Debug.Log("Game Over!");
 
@@ -127,8 +82,13 @@ public class GameObject : MonoBehaviour
         else
         {
 
-=======
-    // Método para inicializar o jogo, definindo direção e criando a cobra e comida
+            // Gera comida em uma posição aleatória
+        }
+
+        // Adiciona um novo segmento na nova posição da cabeça
+        AddSnakeSegment(newPosition);
+    }
+
     private void InitializeGame()
     {
         currentDirection = Vector2Int.right; // Define a direção inicial para a direita
@@ -136,16 +96,13 @@ public class GameObject : MonoBehaviour
         SpawnFood(); // Coloca a comida no tabuleiro
     }
 
-    // Método para spawnar (criar) a comida em uma posição aleatória
-    private void SpawnFood()
+    private static void SpawnFood()
     {
         throw new NotImplementedException(); // Este método ainda precisa ser implementado
     }
 
-    // Método para criar a cobra (aqui apenas uma implementação básica)
-    private void CreateSnake() => throw new NotImplementedException(); // Ainda não implementado
+    private static void CreateSnake() => throw new NotImplementedException(); // Ainda não implementado
 
-    // Método para inicializar a cobra com 3 segmentos na posição inicial
     private void InitializeSnake()
     {
         // Define a posição inicial da cabeça da cobra no centro do tabuleiro
@@ -160,20 +117,18 @@ public class GameObject : MonoBehaviour
         }
     }
 
-    // Método para adicionar um segmento da cobra na posição especificada
-    private void AddSnakeSegment(Vector2Int position)
+    private static void AddSnakeSegment(Vector2Int position)
     {
         throw new NotImplementedException(); // Este método ainda precisa ser implementado
     }
 
-    // Método para mover a cobra a cada atualização do jogo
-    public void MoveSnake()
+    private void MoveSnake()
     {
         // Calcula a nova posição da cabeça com base na direção atual
         Vector2Int newPosition = Vector2Int.RoundToInt(snakeSegments[0].position) + currentDirection;
 
         // Verifica se a nova posição resultará em uma colisão
-        if (CheckCollision(newPosition))
+        if (CheckCollision1(newPosition))
         {
             Debug.Log("Game Over!"); // Exibe a mensagem de Game Over no console
             return; // Finaliza o método, não movendo a cobra
@@ -187,22 +142,27 @@ public class GameObject : MonoBehaviour
         else
         {
             // Se não comeu a comida, remove o último segmento (a cauda)
->>>>>>> Stashed changes
+
             Destroy(snakeSegments[snakeSegments.Count - 1].gameObject);
             snakeSegments.RemoveAt(snakeSegments.Count - 1);
         }
 
-<<<<<<< Updated upstream
+
 
         AddSnakeSegment(newPosition);
     }
 
-    private bool CheckCollision(Vector2Int newPosition)
+    private static bool CheckCollision1(Vector2Int newPosition)
+    {
+        throw new NotImplementedException(); // Este método ainda precisa ser implementado
+    }
+
+    private static bool CheckCollision(Vector2Int newPosition)
     {
         throw new NotImplementedException();
     }
 
-    public void ChangeDirection(Vector2Int newDirection)
+    private void ChangeDirection1(Vector2Int newDirection)
     {
         // Impede que a cobra se mova para a direção oposta diretamente
         if (newDirection != -currentDirection)
@@ -211,21 +171,7 @@ public class GameObject : MonoBehaviour
         }
     }
 
-    // Gera comida em uma posição aleatória
-}
-=======
-        // Adiciona um novo segmento na nova posição da cabeça
-        AddSnakeSegment(newPosition);
-    }
-
-    // Método para verificar colisões com as bordas ou o próprio corpo
-    private bool CheckCollision(Vector2Int newPosition)
-    {
-        throw new NotImplementedException(); // Este método ainda precisa ser implementado
-    }
-
-    // Método para mudar a direção da cobra com base na entrada do jogador
-    public void ChangeDirection(Vector2Int newDirection)
+    private void ChangeDirection(Vector2Int newDirection)
     {
         // Evita que a cobra se mova na direção oposta à sua direção atual
         if (newDirection != -currentDirection)
@@ -237,4 +183,4 @@ public class GameObject : MonoBehaviour
 
     
 
->>>>>>> Stashed changes
+
